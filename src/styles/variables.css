@@ -52,4 +52,22 @@
   --color-DisableBtn: #2b3139;
   --color-DisabledText: #5e6673;
   --color-DisableText: #5e6673;
+
+  --c-font-size-50: 11px;
+  --c-font-size-75: 12px;
+  --c-font-size-100: 14px;
+  --c-font-size-200: 16px;
+  --c-font-size-300: 18px;
+  --c-font-size-400: 18px;
+  --c-font-size-600: 20px;
+  --c-font-size-800: 25px;
+  --c-font-size-1000: 32px;
+  --c-font-weight-300: 300;
+  --c-font-weight-400: 400;
+  --c-font-weight-500: 500;
+  --c-font-weight-600: 600;
+  --c-font-weight-700: 700;
+  --c-font-weight-900: 900;
+  --c-line-height-heading: 130%;
+  --c-line-height-body: 150%;
 }
