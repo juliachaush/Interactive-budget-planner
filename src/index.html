@@ -11,7 +11,11 @@
   </head>
   <body>
     <header class="header-container">
-      <p>Interactive budget planner</p>
+      <p>INTERACTIVE BUDGET PLANNER</p>
+      <div class="button-container">
+        <button class="primary-button income-button">+Add income</button>
+        <button class="primary-button outcome-button">+Add outcome</button>
+      </div>
     </header>
 
     <div class="container-sidebar">
@@ -30,13 +34,15 @@
       </div>
 
       <div class="container">
+       
+        <h2>December 2024</h2>
 
       <div class="cards-container">
         <div class="incomes-card-container">
           <div class="incomes-card-header">Incomes</div>
           <div class="incomes-card-content">
             <div class="incomes-card-content-wrapper">
-              <span>5956$</span>
+              <span class="incomes">+$5956</span>
             </div>
           </div>
         </div>
@@ -45,7 +51,7 @@
           <div class="outcomes-card-header">Outcomes</div>
           <div class="outcomes-card-content">
             <div class="outcomes-card-content-wrapper">
-              <span>5956$</span>
+              <span class="outcomes">-$5956</span>
             </div>
           </div>
         </div>
@@ -54,7 +60,7 @@
           <div class="balance-card-header">balance</div>
           <div class="balance-card-content">
             <div class="balance-card-content-wrapper">
-              <span>5956$</span>
+              <span class="balance">$5956</span>
             </div>
           </div>
         </div>
@@ -63,34 +69,69 @@
         <div class="table-row header">
           <div class="table-cell">#</div>
           <div class="table-cell">Date</div>
-          <div class="table-cell">Income/Outcome</div>
+          
           <div class="table-cell">Type</div>
-          <div class="table-cell">Sum</div>
+         
+          <div class="table-cell">Money type</div>
+          <div class="table-cell sum">Sum</div>
         </div>
         <div class="table-row">
           <div class="table-cell">1</div>
           <div class="table-cell">06.12.2024</div>
-          <div class="table-cell">Income</div>
           <div class="table-cell">Salery</div>
-          <div class="table-cell">5000</div>
+          <div class="table-cell ">
+            <span class="badge status-cash">Cash</span>
+            </div>
+          <div class="table-cell  incomes sum">+5000</div>
         </div>
         <div class="table-row">
           <div class="table-cell">2</div>
           <div class="table-cell">06.12.2024</div>
-          <div class="table-cell">Outcome</div>
           <div class="table-cell">Grocery store</div>
-          <div class="table-cell">300</div>
+          <div class="table-cell bage-outcome ">
+            <span class="badge status-dbetcard">Debet card</span>
+          </div>
+          <div class="table-cell outcomes sum">-300</div>
         </div>
         <div class="table-row">
           <div class="table-cell">3</div>
           <div class="table-cell">06.12.2024</div>
-          <div class="table-cell">Outcome</div>
           <div class="table-cell">Clothes</div>
-          <div class="table-cell">500</div>
+          <div class="table-cell bage-outcome">
+            <span class="badge status-cerditcard">Credit card</span>
+          </div>
+          <div class="table-cell  outcomes sum">-500</div>
         </div>
       </div>
     </div>
-      
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Add Income</h2>
+        <p>Add your income here</p>
+        <div class="button-container">
+          <button class="circle-button">
+            <!-- <img src="ramen.jpg" alt="Icon 1" /> -->
+          </button>
+          <button class="circle-button">
+            <!-- <img src="./assets/images/ramen.jpg" alt="Icon 2" /> -->
+          </button>
+          <button class="circle-button">
+            <!-- <img src="./assets/images/ramen.jpg" alt="Icon 3" /> -->
+          </button>
+        </div>
+        <form>
+          <label>Date</label>
+          <input type="date"/>
+          <label type="text">Sum</label>
+         
+          <input/>
+          <button class="primary-button income-button">+Add income</button>
+        </form>
+      </div>
+    </div>
+
     </div>
     </div>
   </body>
