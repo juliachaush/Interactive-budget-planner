@@ -175,7 +175,7 @@ header p {
   padding: 8px;
   border: none;
   border-radius: 4px;
-  margin-right: 12px;
+
   cursor: pointer;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -261,7 +261,6 @@ header p {
 /*Modal*/
 .modal {
   display: none;
-  /* display: flex; */
   position: fixed;
   top: 0;
   left: 0;
@@ -307,6 +306,7 @@ form {
 }
 
 label {
+  display: block;
   font-size: 16px;
 }
 
@@ -329,8 +329,21 @@ input:focus {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 18px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.error-message {
+  font-size: 14px;
+  color: #dc3545;
+  margin-top: 2px;
+  visibility: hidden;
+  height: 1em;
 }
 
 /*circle buttons*/
@@ -392,7 +405,28 @@ input:focus {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.oval-button-container {
+  margin-bottom: 24px;
+  margin-top: 12px;
+}
+
+.cash {
+  border-color: var(--color-textBuy);
+  color: var(--color-textBuy);
+}
+.credit-card {
+  border-color: var(--color-sellHover);
+  color: var(--color-sellHover);
+}
+.debit-card {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 @media (max-width: 768px) {
+  .table .header {
+    font-size: 12px;
+  }
   .table-cell {
     padding: 6px 8px;
     text-align: left;
@@ -402,23 +436,47 @@ input:focus {
     font-size: 11px;
     min-width: 70px;
   }
-  /* .table {
-    display: block;
+  .table {
+    font-size: 13px;
+    grid-column-start: 1;
+    grid-column-end: 1;
   }
 
-  .table-row {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
+  .cards-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
+    grid-gap: 4px;
+    padding-top: 2rem;
   }
 
-  .table-cell {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px;
+  .balance-card-container {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 1;
   }
 
-  .header .table-cell {
-    display: none;
-  } */
+  .addlimits-button {
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+
+  .limits-container {
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+
+  .limit-container {
+    padding: 2px;
+
+    font-size: 12px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+  }
 }

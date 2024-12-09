@@ -140,7 +140,7 @@
           </div>
         </div>
 
-        <div id="modal" class="modal">
+        <div id="modal" class="modal ">
           <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2>Add Outcome</h2>
@@ -172,25 +172,35 @@
                   <div class="button-with-text text">Travel</div>
                 </div>
               </div>
-              <div>Or type your variant of income</div>
+              <div>Or type your variant of outcome</div>
               <div class="input-container">
+                <div class="form-group">
                 <!-- <label for="variant-input">Type ov operation</label> -->
                 <input
                   type="text"
                   id="variant-input"
                   placeholder="Type of operation"
                 />
+                <span class="error-message">Password must be at least 6 characters.</span>
+              </div>
+              <div class="form-group">
                 <!-- <label for="date-input">Date</label> -->
                 <input type="date" id="date-input" placeholder="date" />
+                <span class="error-message">Password must be at least 6 characters.</span>
                 <!-- <label for="sum-input">Sum</label> -->
-
+              </div>
+              <div class="form-group">
                 <input
                   type="text"
                   id="sum-input"
                   placeholder="Sum of operation"
                 />
+                <span class="error-message">Password must be at least 6 characters.</span>
               </div>
+              </div>
+              <div>Choose type of payment</div>
               <div class="oval-button-container">
+                
                 <button class="oval-button cash">Cash</button>
                 <button class="oval-button credit-card">Credit card</button>
                 <button class="oval-button debit-card">Debit card</button>
