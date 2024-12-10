@@ -4,7 +4,12 @@ import "../styles/variables.css";
 import "../styles/modal.css";
 import "../styles/form.css";
 import { openModal, closeModal, initializeModal } from "./modal.js";
-import { changeButtonColors, buttonBorder } from "./components/button.js";
+import {
+  changeButtonColors,
+  addButtonBorder,
+  resetButtonStyles,
+  resetBorders,
+} from "./components/button.js";
 import { formSubmitting } from "./form.js";
 
 /* BUTTONS*/
@@ -14,6 +19,7 @@ const buttonDebitCard = document.querySelector(".debit-card");
 const circleButtons = document.querySelectorAll(".circle-modal-button");
 /* FORM*/
 const form = document.getElementById("myForm");
+const menu = document.querySelector(".oval-button-container");
 
 document.addEventListener("DOMContentLoaded", () => {
   initializeModal();
@@ -30,48 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const paymentButtons = [buttonDebitCard, buttonCash, buttonCreditCard];
-
-buttonDebitCard.addEventListener("click", () => {
-  changeButtonColors(
-    buttonDebitCard,
-    "var(--color-primary)",
-    "var(--color-bg)",
-    paymentButtons
-  );
-});
-
-buttonCash.addEventListener("click", () => {
-  changeButtonColors(
-    buttonCash,
-    "var(--color-textBuy)",
-    "var(--color-bg)",
-    paymentButtons
-  );
-});
-
-buttonCreditCard.addEventListener("click", () => {
-  changeButtonColors(
-    buttonCreditCard,
-    "var(--color-sellHover)",
-    "var(--color-bg)",
-    paymentButtons
-  );
-});
-
-const resetBorders = () => {
-  circleButtons.forEach((button) => {
-    button.style.outline = "none";
-  });
-};
-
 circleButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    resetBorders();
-    buttonBorder(button, "var(--color-textBuy)");
+    resetBorders(circleButtons);
+    addButtonBorder(button, "var(--color-textBuy)");
   });
 });
 
 form.addEventListener("submit", (event, form) => {
   formSubmitting(event);
+});
+
+const paymentButtons = [buttonDebitCard, buttonCash, buttonCreditCard];
+
+menu.addEventListener("click", (event) => {
+  resetButtonStyles(paymentButtons);
+  changeButtonColors(event);
 });
