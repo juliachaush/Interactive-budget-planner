@@ -1,7 +1,10 @@
 import "../styles/reset.css";
 import "../styles/main.css";
 import "../styles/variables.css";
+import "../styles/modal.css";
+import "../styles/form.css";
 import { openModal, closeModal, initializeModal } from "./modal.js";
+import { changeButtonColors } from "./components/button.js";
 
 /* BUTTONS*/
 const buttonCreditCard = document.querySelector(".credit-card");
@@ -23,29 +26,31 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const ovalButtons = [buttonDebitCard, buttonCash, buttonCreditCard];
-
-function resetButtonStyles() {
-  ovalButtons.forEach((button) => {
-    button.style.backgroundColor = "transparent";
-    button.style.color = "var(--color-textWhite)";
-  });
-}
+const paymentButtons = [buttonDebitCard, buttonCash, buttonCreditCard];
 
 buttonDebitCard.addEventListener("click", () => {
-  resetButtonStyles();
-  buttonDebitCard.style.backgroundColor = "var(--color-primary)";
-  buttonDebitCard.style.color = "var(--color-bg)";
+  changeButtonColors(
+    buttonDebitCard,
+    "var(--color-primary)",
+    "var(--color-bg)",
+    paymentButtons
+  );
 });
 
 buttonCash.addEventListener("click", () => {
-  resetButtonStyles();
-  buttonCash.style.backgroundColor = "var(--color-textBuy)";
-  buttonCash.style.color = "var(--color-bg)";
+  changeButtonColors(
+    buttonCash,
+    "var(--color-textBuy)",
+    "var(--color-bg)",
+    paymentButtons
+  );
 });
 
 buttonCreditCard.addEventListener("click", () => {
-  resetButtonStyles();
-  buttonCreditCard.style.backgroundColor = "var(--color-sellHover)";
-  buttonCreditCard.style.color = "var(--color-bg)";
+  changeButtonColors(
+    buttonCreditCard,
+    "var(--color-sellHover)",
+    "var(--color-bg)",
+    paymentButtons
+  );
 });

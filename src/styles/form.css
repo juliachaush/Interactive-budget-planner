@@ -1,0 +1,73 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+}
+
+input {
+  width: 320px;
+  height: 44px;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: var(--color-bg);
+  color: var(--color-textThird);
+}
+
+input::placeholder {
+  color: var(--color-textThird);
+}
+
+input:focus {
+  outline: none;
+}
+
+.input-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 18px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Custom-date-picker */
+.custom-date input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.custom-date input[type="date"]::-webkit-calendar-picker-indicator {
+  background: url("/src/assets/icons/calendar.svg") no-repeat center center;
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-date input[type="date"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
+/*ERROR MESSAGE*/
+.error-message {
+  font-size: 14px;
+  color: #dc3545;
+  margin-top: 2px;
+  visibility: hidden;
+  height: 1em;
+}
