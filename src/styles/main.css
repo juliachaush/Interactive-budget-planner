@@ -222,7 +222,7 @@ header p {
 /*circle buttons*/
 .button-container {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -279,21 +279,21 @@ header p {
 }
 
 .oval-button-container {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
   margin-bottom: 24px;
   margin-top: 12px;
 }
 
 .cash {
   border-color: var(--color-textBuy);
-  /* color: var(--color-textWhite); */
 }
 .credit-card {
   border-color: var(--color-sellHover);
-  /* color: var(--color-textWhite); */
 }
 .debit-card {
   border-color: var(--color-primary);
-  /* color: var(--color-textWhite); */
 }
 
 @media (max-width: 768px) {

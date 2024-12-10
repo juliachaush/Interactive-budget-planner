@@ -4,12 +4,16 @@ import "../styles/variables.css";
 import "../styles/modal.css";
 import "../styles/form.css";
 import { openModal, closeModal, initializeModal } from "./modal.js";
-import { changeButtonColors } from "./components/button.js";
+import { changeButtonColors, buttonBorder } from "./components/button.js";
+import { formSubmitting } from "./form.js";
 
 /* BUTTONS*/
 const buttonCreditCard = document.querySelector(".credit-card");
 const buttonCash = document.querySelector(".cash");
 const buttonDebitCard = document.querySelector(".debit-card");
+const circleButtons = document.querySelectorAll(".circle-modal-button");
+/* FORM*/
+const form = document.getElementById("myForm");
 
 document.addEventListener("DOMContentLoaded", () => {
   initializeModal();
@@ -53,4 +57,21 @@ buttonCreditCard.addEventListener("click", () => {
     "var(--color-bg)",
     paymentButtons
   );
+});
+
+const resetBorders = () => {
+  circleButtons.forEach((button) => {
+    button.style.outline = "none";
+  });
+};
+
+circleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    resetBorders();
+    buttonBorder(button, "var(--color-textBuy)");
+  });
+});
+
+form.addEventListener("submit", (event, form) => {
+  formSubmitting(event);
 });
