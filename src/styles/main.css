@@ -27,46 +27,6 @@ header p {
   line-height: var(--c-line-height-heading);
 }
 
-/* .container-sidebar {
-  display: flex;
-  padding-top: 32px;
-} */
-/* Sidebar */
-/* .sidebar {
-  width: 17rem;
-  height: 100vh;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar-header {
-  width: 100%;
-  background-color: var(--color-CardBg);
-  padding: 12px;
-}
-
-.menu-wrap {
-  display: flex;
-  flex-direction: column;
-  padding-top: 12px;
-}
-
-.sidebar a {
-  color: var(--color-textPrimary);
-  font-size: 16px;
-
-  padding: 16px;
-}
-.sidebar-menu-item {
-  padding: 12px;
-}
-
-.sidebar a:hover {
-  color: var(--color-gradientBrand);
-  background-color: var(--color-selectedBg);
-  cursor: pointer;
-  width: 100%;
-} */
-
 /* Cards container */
 .container {
   width: 80%;
@@ -147,6 +107,8 @@ header p {
   padding: 8px;
   grid-column-start: 3;
   grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
   display: flex;
 }
 
@@ -159,8 +121,7 @@ header p {
   align-items: center;
   text-align: center;
   font-size: 14px;
-  width: 120px;
-  height: 120px;
+  width: 170px;
   border-radius: 8px;
   margin-right: 4px;
 }
@@ -317,7 +278,11 @@ input {
   padding: 12px;
   border-radius: 8px;
   background-color: var(--color-bg);
-  color: #fff;
+  color: var(--color-textThird);
+}
+
+input::placeholder {
+  color: var(--color-textThird);
 }
 
 input:focus {
@@ -338,6 +303,29 @@ input:focus {
   text-align: left;
 }
 
+/* Custom-date-picker */
+.custom-date input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.custom-date input[type="date"]::-webkit-calendar-picker-indicator {
+  background: url("/src/assets/icons/calendar.svg") no-repeat center center;
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-date input[type="date"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
+/*ERROR MESSAGE*/
 .error-message {
   font-size: 14px;
   color: #dc3545;
@@ -395,7 +383,7 @@ input:focus {
   font-size: 16px;
   background-color: transparent;
   border: 2px solid #ccc;
-  color: #fff;
+  color: var(--color-textWhite);
   border-radius: 32px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -412,20 +400,20 @@ input:focus {
 
 .cash {
   border-color: var(--color-textBuy);
-  color: var(--color-textBuy);
+  /* color: var(--color-textWhite); */
 }
 .credit-card {
   border-color: var(--color-sellHover);
-  color: var(--color-sellHover);
+  /* color: var(--color-textWhite); */
 }
 .debit-card {
   border-color: var(--color-primary);
-  color: var(--color-primary);
+  /* color: var(--color-textWhite); */
 }
 
 @media (max-width: 768px) {
   .table .header {
-    font-size: 12px;
+    font-size: 10px;
   }
   .table-cell {
     padding: 6px 8px;
@@ -470,8 +458,6 @@ input:focus {
     padding: 2px;
 
     font-size: 12px;
-    width: 120px;
-    height: 120px;
   }
 
   .modal-content {
