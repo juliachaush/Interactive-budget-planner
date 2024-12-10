@@ -3,6 +3,7 @@ const modalHeader = document.querySelector(".modal-header");
 const modalTextVariant = document.querySelector(".modal-text-variant");
 const modalContentContainer = document.querySelector(".modal-content");
 const closeButton = document.querySelector(".close-button");
+const submitButton = document.querySelector(".submit-button");
 
 export function openModal(headerText, textVariant, isCreditCardVisible = true) {
   modal.style.display = "flex";
@@ -11,6 +12,18 @@ export function openModal(headerText, textVariant, isCreditCardVisible = true) {
 
   const buttonCreditCard = document.querySelector(".credit-card");
   buttonCreditCard.style.display = isCreditCardVisible ? "inline" : "none";
+
+  const isIncome = textVariant === "income";
+  const isOutcome = textVariant === "outcome";
+
+  submitButton.classList.toggle("income-button", isIncome);
+  submitButton.classList.toggle("outcome-button", isOutcome);
+
+  submitButton.textContent = isIncome
+    ? "+Add income"
+    : isOutcome
+    ? "+Add outcome"
+    : submitButton.textContent;
 }
 
 export function closeModal() {
