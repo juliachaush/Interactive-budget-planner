@@ -17,10 +17,14 @@ import { formSubmitting, formValidation } from "./form.js";
 const buttonCreditCard = document.querySelector(".credit-card");
 const buttonCash = document.querySelector(".cash");
 const buttonDebitCard = document.querySelector(".debit-card");
-const circleButtons = document.querySelectorAll(".circle-modal-button");
+const circleButtons = document.querySelectorAll(
+  ".circle-button.circle-modal-button"
+);
 /* FORM*/
 const form = document.getElementById("myForm");
 const menu = document.querySelector(".oval-button-container");
+
+const variantFormInput = document.getElementById("variant-input");
 
 document.addEventListener("DOMContentLoaded", () => {
   initializeModal();
@@ -40,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
 circleButtons.forEach((button) => {
   button.addEventListener("click", () => {
     resetBorders(circleButtons);
-
     addButtonBorder(button, "var(--color-textBuy)");
   });
 });

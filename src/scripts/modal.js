@@ -4,6 +4,9 @@ const modalTextVariant = document.querySelector(".modal-text-variant");
 const modalContentContainer = document.querySelector(".modal-content");
 const closeButton = document.querySelector(".close-button");
 const submitButton = document.querySelector(".submit-button");
+const circleButtons = document.querySelector(
+  ".circle-button.circle-modal-button.food"
+);
 
 export function openModal(headerText, textVariant, isCreditCardVisible = true) {
   modal.style.display = "flex";
@@ -44,4 +47,6 @@ export function initializeModal() {
   closeButton.addEventListener("click", () => {
     closeModal();
   });
+
+  circleButtons.disable = false;
 }

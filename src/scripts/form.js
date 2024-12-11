@@ -7,7 +7,9 @@ const dateFormInput = document.getElementById("date");
 const errorMessageForVariant = document.querySelector(".variant");
 const errorMessageForDate = document.querySelector(".date");
 const errorMessageForSum = document.querySelector(".amount");
-const circleButtons = document.querySelectorAll(".circle-modal-button");
+const circleButtons = document.querySelectorAll(
+  ".circle-button.circle-modal-button"
+);
 
 export const formSubmitting = (event) => {
   event.preventDefault();
@@ -54,16 +56,23 @@ export const validationError = (errorMessage, errorTextMessage) => {
   errorMessage.classList.add("error");
 };
 
-variantFormInput.addEventListener("input", () => {
-  const value = variantFormInput.value;
+variantFormInput.addEventListener("input", (e) => {
+  const value = e.target.value;
 
   if (value === "") {
     errorMessageForVariant.style.visibility = "hidden";
+    circleButtons.forEach((button) => {
+      button.disabled = false;
+    });
+
     return;
   }
-  /*Logic for cirkle button*/
+  /*Logic for circle button*/
   if (value !== "") {
     resetBorders(circleButtons);
+    circleButtons.forEach((button) => {
+      button.disabled = true;
+    });
   }
 
   if (formValidation(value, onlyLetters)) {
