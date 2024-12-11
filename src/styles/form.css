@@ -66,8 +66,16 @@ input:focus {
 /*ERROR MESSAGE*/
 .error-message {
   font-size: 14px;
-  color: #dc3545;
+  color: var(--color-error);
   margin-top: 2px;
   visibility: hidden;
   height: 1em;
+}
+
+.error {
+  color: var(--color-error);
+}
+
+.success {
+  color: var(--color-success);
 }

@@ -111,15 +111,15 @@
               <div class="table-cell sum">Sum</div>
             </div>
             <div class="table-row">
-              <div class="table-cell">1</div>
-              <div class="table-cell">06.12.2024</div>
-              <div class="table-cell">Salery</div>
-              <div class="table-cell">
+              <div class="table-cell table-cell--number">1</div>
+              <div class="table-cell table-cell--date">06.12.2024</div>
+              <div class="table-cell table-cell--type">Salery</div>
+              <div class="table-cell table-cell--bage">
                 <span class="badge status-cash">Cash</span>
               </div>
-              <div class="table-cell incomes sum">+5000</div>
+              <div class="table-cell table-cell--incomes incomes sum">+5000</div>
             </div>
-            <div class="table-row">
+            <!-- <div class="table-row">
               <div class="table-cell">2</div>
               <div class="table-cell">06.12.2024</div>
               <div class="table-cell">Grocery store</div>
@@ -127,8 +127,8 @@
                 <span class="badge status-dbetcard">Debet card</span>
               </div>
               <div class="table-cell outcomes sum">-300</div>
-            </div>
-            <div class="table-row">
+            </div> -->
+            <!-- <div class="table-row">
               <div class="table-cell">3</div>
               <div class="table-cell">06.12.2024</div>
               <div class="table-cell">Clothes</div>
@@ -136,7 +136,7 @@
                 <span class="badge status-cerditcard">Credit card</span>
               </div>
               <div class="table-cell outcomes sum">-500</div>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -182,7 +182,7 @@
                   placeholder="Type of operation"
                   name="operation"
                 />
-                <span class="error-message">Password must be at least 6 characters.</span>
+                <span class="error-message variant">The type must contain only letters</span>
               </div>
               <div class="form-group">
                 <!-- <label for="date-input">Date</label> -->
@@ -192,7 +192,7 @@
                   <input type="date" id="date" name="date">
                   <span id="formatted-date"></span>
                 </div>
-                <span class="error-message">Password must be at least 6 characters.</span>
+                <span class="error-message date">Password must be at least 6 characters.</span>
                 <!-- <label for="sum-input">Sum</label> -->
               </div>
               <div class="form-group">
@@ -205,7 +205,7 @@
                 placeholder="0.00"
                 
                 />
-                <span class="error-message">Password must be at least 6 characters.</span>
+                <span class="error-message amount">Password must be at least 6 characters.</span>
               </div>
               </div>
               <div>Choose type of payment</div>

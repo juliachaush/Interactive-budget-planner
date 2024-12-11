@@ -161,64 +161,6 @@ header p {
   border-radius: 8px;
 }
 
-/* Table */
-.table {
-  display: grid;
-  grid-template-columns: 4% 1fr 2fr 1fr 1fr;
-  padding-top: 2.5rem;
-  grid-column-start: 1;
-  grid-column-end: 4;
-}
-
-.table-row {
-  display: contents;
-}
-
-.table-cell {
-  padding: 12px 15px;
-  text-align: left;
-}
-.sum {
-  text-align: right;
-}
-
-.table .header {
-  color: var(--color-textThird);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.badge {
-  display: inline-block;
-  padding: 2px 10px;
-  color: #fff;
-  border-radius: 16px;
-  font-size: 14px;
-  text-align: center;
-  min-width: 100px;
-}
-.status-cash {
-  background-color: var(--color-success);
-  opacity: 0.8;
-}
-.status-dbetcard {
-  background-color: var(--color-textBrand);
-  opacity: 0.8;
-}
-.status-cerditcard {
-  background-color: var(--color-sellHover);
-  opacity: 0.8;
-}
-
-.table-row:nth-child(even) {
-  background-color: var(--color-CardBg);
-}
-
-.table-row:hover {
-  background-color: var(--color-CardBg);
-  cursor: pointer;
-}
-
 /*circle buttons*/
 .button-container {
   display: flex;
@@ -297,24 +239,6 @@ header p {
 }
 
 @media (max-width: 768px) {
-  .table .header {
-    font-size: 10px;
-  }
-  .table-cell {
-    padding: 6px 8px;
-    text-align: left;
-  }
-  .badge {
-    padding: 2px 4px;
-    font-size: 11px;
-    min-width: 70px;
-  }
-  .table {
-    font-size: 13px;
-    grid-column-start: 1;
-    grid-column-end: 1;
-  }
-
   .cards-container {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 2fr;

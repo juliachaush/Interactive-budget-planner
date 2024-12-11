@@ -3,14 +3,15 @@ import "../styles/main.css";
 import "../styles/variables.css";
 import "../styles/modal.css";
 import "../styles/form.css";
-import { openModal, closeModal, initializeModal } from "./modal.js";
+import "../styles/table.css";
+import { openModal, initializeModal } from "./modal.js";
 import {
   changeButtonColors,
   addButtonBorder,
   resetButtonStyles,
   resetBorders,
 } from "./components/button.js";
-import { formSubmitting } from "./form.js";
+import { formSubmitting, formValidation } from "./form.js";
 
 /* BUTTONS*/
 const buttonCreditCard = document.querySelector(".credit-card");
@@ -39,12 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
 circleButtons.forEach((button) => {
   button.addEventListener("click", () => {
     resetBorders(circleButtons);
+
     addButtonBorder(button, "var(--color-textBuy)");
   });
 });
 
 form.addEventListener("submit", (event, form) => {
   formSubmitting(event);
+  // formValidation(event);
 });
 
 const paymentButtons = [buttonDebitCard, buttonCash, buttonCreditCard];
