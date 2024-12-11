@@ -23,6 +23,40 @@ export const formSubmitting = (event) => {
   console.log("my data", data);
 };
 
+export const circleButtonsDataOutcome = [
+  { src: "images/ramen.jpg", alt: "Icon 1", disabled: false, text: "Food" },
+];
+
+export const circleButtonsDataIncome = [
+  { src: "images/ramen.jpg", alt: "Icon 1", disabled: false, text: "Sellery" },
+];
+
+const circleButtonContainer = document.querySelector(
+  "#circle-button-container"
+);
+console.log("circleButtonContainer", circleButtonContainer);
+
+circleButtonsDataOutcome.forEach(({ src, alt, disabled, text }) => {
+  const circleButtonWrapper = document.createElement("div");
+  circleButtonWrapper.classList.add("button-with-text");
+  const button = document.createElement("button");
+  button.type = "button";
+  button.classList.add("circle-button", "circle-modal-button");
+  button.disabled = disabled;
+  const circleButtonText = document.createElement("div");
+  circleButtonText.classList.add("button-with-text", "text");
+  circleButtonText.innerText = text;
+
+  const img = document.createElement("img");
+  img.src = src;
+  img.alt = alt;
+
+  circleButtonContainer.appendChild(circleButtonWrapper);
+  button.appendChild(img);
+  circleButtonWrapper.appendChild(button);
+  circleButtonWrapper.appendChild(circleButtonText);
+});
+
 // export const formValidation = (e) => {
 //   console.log("event", e);
 //   const variantFormInputValue = variantFormInput.value;
@@ -56,8 +90,24 @@ export const validationError = (errorMessage, errorTextMessage) => {
   errorMessage.classList.add("error");
 };
 
+const isValidDate = (value) => {
+  if (!formValidation(value, dateRegex)) return false;
+
+  const [day, month, year] = value.split(".").map(Number);
+  if (month < 1 || month > 12) return false;
+  if (day < 1 || day > 31) return false;
+  if (year < 1900 || year > 2100) return false;
+
+  const daysInMonth = new Date(year, month, 0).getDate();
+  return day <= daysInMonth;
+};
+
 variantFormInput.addEventListener("input", (e) => {
   const value = e.target.value;
+
+  const circleButtons = document.querySelectorAll(
+    ".circle-button.circle-modal-button"
+  );
 
   if (value === "") {
     errorMessageForVariant.style.visibility = "hidden";
@@ -84,18 +134,6 @@ variantFormInput.addEventListener("input", (e) => {
     );
   }
 });
-
-const isValidDate = (value) => {
-  if (!formValidation(value, dateRegex)) return false;
-
-  const [day, month, year] = value.split(".").map(Number);
-  if (month < 1 || month > 12) return false;
-  if (day < 1 || day > 31) return false;
-  if (year < 1900 || year > 2100) return false;
-
-  const daysInMonth = new Date(year, month, 0).getDate();
-  return day <= daysInMonth;
-};
 
 dateFormInput.addEventListener("input", () => {
   const value = dateFormInput.value;
