@@ -24,25 +24,66 @@ export const formSubmitting = (event) => {
 };
 
 export const circleButtonsDataOutcome = [
-  { src: "images/ramen.jpg", alt: "Icon 1", disabled: false, text: "Food" },
+  {
+    src: "images/ramen.jpg",
+    alt: "Food",
+    disabled: false,
+    text: "Food",
+  },
+  {
+    src: "images/shopping.jpg",
+    alt: "Сlothes",
+    disabled: false,
+    text: "Сlothes",
+  },
+  {
+    src: "images/fun.jpg",
+    alt: "Fun",
+    disabled: false,
+    text: "Fun",
+  },
+  {
+    src: "images/travel.jpg",
+    alt: "Travel",
+    disabled: false,
+    text: "Travel",
+  },
 ];
 
 export const circleButtonsDataIncome = [
-  { src: "images/ramen.jpg", alt: "Icon 1", disabled: false, text: "Sellery" },
+  {
+    src: "images/ramen.jpg",
+    alt: "Salary",
+    disabled: false,
+    text: "Salary",
+  },
+  {
+    src: "images/ramen.jpg",
+    alt: "Borrowed",
+    disabled: false,
+    text: "Borrowed",
+  },
 ];
 
-const circleButtonContainer = document.querySelector(
-  "#circle-button-container"
-);
-console.log("circleButtonContainer", circleButtonContainer);
+export const createCircleButtons = (src, alt, disabled, text) => {
+  const circleButtonContainer = document.querySelector(
+    "#circle-button-container"
+  );
 
-circleButtonsDataOutcome.forEach(({ src, alt, disabled, text }) => {
+  if (!circleButtonContainer) {
+    console.error('Element with id "circle-button-container" not found.');
+    return;
+  }
+
   const circleButtonWrapper = document.createElement("div");
   circleButtonWrapper.classList.add("button-with-text");
+  circleButtonWrapper.id = "button-with-text";
+
   const button = document.createElement("button");
   button.type = "button";
   button.classList.add("circle-button", "circle-modal-button");
   button.disabled = disabled;
+
   const circleButtonText = document.createElement("div");
   circleButtonText.classList.add("button-with-text", "text");
   circleButtonText.innerText = text;
@@ -51,22 +92,11 @@ circleButtonsDataOutcome.forEach(({ src, alt, disabled, text }) => {
   img.src = src;
   img.alt = alt;
 
-  circleButtonContainer.appendChild(circleButtonWrapper);
   button.appendChild(img);
   circleButtonWrapper.appendChild(button);
   circleButtonWrapper.appendChild(circleButtonText);
-});
-
-// export const formValidation = (e) => {
-//   console.log("event", e);
-//   const variantFormInputValue = variantFormInput.value;
-//   const onlyLetters = /^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ\s]*$/;
-
-//   if (!onlyLetters.test(variantFormInputValue)) {
-//     e.preventDefault();
-//     errorMessage.style.visibility = "visible";
-//   }
-// };
+  circleButtonContainer.appendChild(circleButtonWrapper);
+};
 
 const onlyLetters = /^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ\s]*$/;
 const dateRegex = /^\d{2}\.\d{2}\.\d{4}$/;

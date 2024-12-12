@@ -1,11 +1,21 @@
+import {
+  circleButtonsDataOutcome,
+  circleButtonsDataIncome,
+  createCircleButtons,
+} from "./form";
+import { resetBorders, addButtonBorder } from "./components/button.js";
+
 const modal = document.getElementById("modal");
 const modalHeader = document.querySelector(".modal-header");
 const modalTextVariant = document.querySelector(".modal-text-variant");
 const modalContentContainer = document.querySelector(".modal-content");
 const closeButton = document.querySelector(".close-button");
 const submitButton = document.querySelector(".submit-button");
-const circleButtons = document.querySelector(
-  ".circle-button.circle-modal-button.food"
+const circleButtonContainer = document.querySelector(
+  "#circle-button-container"
+);
+const circleButtons = document.querySelectorAll(
+  ".circle-button.circle-modal-button"
 );
 
 export function openModal(headerText, textVariant, isCreditCardVisible = true) {
@@ -21,6 +31,22 @@ export function openModal(headerText, textVariant, isCreditCardVisible = true) {
 
   submitButton.classList.toggle("income-button", isIncome);
   submitButton.classList.toggle("outcome-button", isOutcome);
+
+  const circleButtonContainer = document.querySelector(
+    "#circle-button-container"
+  );
+  circleButtonContainer.innerHTML = "";
+  if (isOutcome) {
+    circleButtonsDataOutcome.forEach(({ src, alt, disabled, text }) => {
+      createCircleButtons(src, alt, disabled, text);
+    });
+  }
+
+  if (isIncome) {
+    circleButtonsDataIncome.forEach(({ src, alt, disabled, text }) => {
+      createCircleButtons(src, alt, disabled, text);
+    });
+  }
 
   submitButton.textContent = isIncome
     ? "+Add income"
@@ -47,6 +73,13 @@ export function initializeModal() {
   closeButton.addEventListener("click", () => {
     closeModal();
   });
-
-  circleButtons.disable = false;
 }
+
+export const handleButtonClick = (event) => {
+  const button = event.target.closest("button.circle-button");
+  const circleButtons = document.querySelectorAll("button.circle-button");
+  if (button) {
+    resetBorders(circleButtons);
+    addButtonBorder(button, "var(--color-textBuy)");
+  }
+};
