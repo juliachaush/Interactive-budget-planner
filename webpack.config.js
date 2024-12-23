@@ -1,6 +1,6 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   resolve: {
@@ -8,15 +8,15 @@ module.exports = {
       url: false,
     },
   },
-  entry: "./src/scripts/index.js",
+  entry: './src/scripts/index.js',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
-  mode: "development",
+  mode: 'development',
   devServer: {
     static: {
-      directory: path.join(__dirname, "dist"),
+      directory: path.join(__dirname, 'dist'),
     },
     compress: true,
     port: 9000,
@@ -24,7 +24,7 @@ module.exports = {
     liveReload: true,
     open: true,
     watchFiles: {
-      paths: ["src/**/*"],
+      paths: ['src/**/*'],
     },
   },
 
@@ -32,34 +32,39 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "fonts/[name].[hash].[ext]",
+              name: 'fonts/[name].[hash].[ext]',
             },
           },
         ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
+      template: './src/index.html',
+      filename: 'index.html',
       inject: true,
     }),
     new CopyPlugin({
-      patterns: [{ from: "src/assets/images", to: "images" }],
+      patterns: [
+        {
+          from: 'src/assets/images',
+          to: 'images',
+        },
+      ],
     }),
   ],
-};
+}

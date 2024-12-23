@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -66,128 +66,130 @@
             </div>
           </div>
 
-          
-          
           <div class="limits-container">
-          
-         
-          <div class="limit-container">
-          <div class="circle-button">
-          <img src="images/ramen.jpg" alt="Icon 1" />
-        </div>
-        <div >Food limit</div>
-        <div>$2550</div>
-      </div>
-      <div class="limit-container">
-        <div class="circle-button">
-        <img src="images/fun.jpg" alt="Icon 1" />
-       
-      </div>
-      <div>Fun limit</div>
-      <div>$1243</div>
-    </div>
-
-    <div class="limit-container">
-      <div class="circle-button">
-      <img src="images/shopping.jpg" alt="Icon 1" />
-     
-    </div>
-    <div>Shopping limit</div>
-    <div>$5650</div>
-  </div>
-  <button class="addlimits-button">+Add limits</button>
-</div>
-
-      </div>
-
-          <div class="table">
-            <div class="table-row header">
-              <div class="table-cell">#</div>
-              <div class="table-cell">Date</div>
-
-              <div class="table-cell">Type</div>
-
-              <div class="table-cell">Money type</div>
-              <div class="table-cell sum">Sum</div>
-            </div>
-            <div class="table-row">
-              <div class="table-cell table-cell--number">1</div>
-              <div class="table-cell table-cell--date">06.12.2024</div>
-              <div class="table-cell table-cell--type">Salery</div>
-              <div class="table-cell table-cell--bage">
-                <span class="badge status-cash">Cash</span>
+            <div class="limit-container">
+              <div class="circle-button">
+                <img src="images/ramen.jpg" alt="Icon 1" />
               </div>
-              <div class="table-cell table-cell--incomes incomes sum">+5000</div>
+              <div>Food limit</div>
+              <div>$2550</div>
             </div>
-           
+            <div class="limit-container">
+              <div class="circle-button">
+                <img src="images/fun.jpg" alt="Icon 1" />
+              </div>
+              <div>Fun limit</div>
+              <div>$1243</div>
+            </div>
+
+            <div class="limit-container">
+              <div class="circle-button">
+                <img src="images/shopping.jpg" alt="Icon 1" />
+              </div>
+              <div>Shopping limit</div>
+              <div>$5650</div>
+            </div>
+            <button class="addlimits-button">+Add limits</button>
           </div>
         </div>
 
-        <div id="modal" class="modal ">
-          <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2 class="modal-header"></h2>
+        <div class="table">
+          <div class="table-row header">
+            <div class="table-cell">#</div>
+            <div class="table-cell">Date</div>
 
-            <form id="myForm">
-              <div  id='circle-button-container'class="button-container"> </div>
-              <div>Or print your type of <span class="modal-text-variant"></span></div>
-              <div class="input-container">
-                <div class="form-group">
+            <div class="table-cell">Type</div>
+
+            <div class="table-cell">Money type</div>
+            <div class="table-cell sum">Sum</div>
+          </div>
+          <div class="table-row">
+            <div class="table-cell table-cell--number">1</div>
+            <div class="table-cell table-cell--date">06.12.2024</div>
+            <div class="table-cell table-cell--type">Salery</div>
+            <div class="table-cell table-cell--bage">
+              <span class="badge status-cash">Cash</span>
+            </div>
+            <div class="table-cell table-cell--incomes incomes sum">+5000</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2 class="modal-header"></h2>
+
+          <form id="myForm">
+            <div id="circle-button-container" class="button-container"></div>
+            <div>
+              Or print your type of
+              <span class="modal-text-variant"></span>
+            </div>
+            <div class="input-container">
+              <div class="form-group">
                 <!-- <label for="variant-input">Type ov operation</label> -->
-                
+
                 <input
                   type="text"
                   id="variant-input"
                   placeholder="Type of operation"
                   name="operation"
                   list="outcomes"
-                 
                 />
 
                 <datalist id="outcomes">
-                  <option value="Give a friend">
-                  <option value="Restaurant">
-                  <option value="Treveling">
-                  <option value="Bills">
-                  <option value="fine">
+                  <option value="Give a friend"></option>
+                  <option value="Restaurant"></option>
+                  <option value="Treveling"></option>
+                  <option value="Bills"></option>
+                  <option value="fine"></option>
                 </datalist>
-             
-                <span class="error-message variant">The type must contain only letters</span>
+
+                <span class="error-message variant"
+                  >The type must contain only letters</span
+                >
               </div>
               <div class="form-group">
                 <!-- <label for="date-input">Date</label> -->
                 <div class="custom-date">
-
                   <!-- <label for="date">Choose a date:</label> -->
-                  <input type="date" id="date" name="date">
+                  <input type="date" id="date" name="date" />
                   <span id="formatted-date"></span>
                 </div>
-                <span class="error-message date">Password must be at least 6 characters.</span>
+                <span class="error-message date"
+                  >Password must be at least 6 characters.</span
+                >
                 <!-- <label for="sum-input">Sum</label> -->
               </div>
               <div class="form-group">
                 <input
-                type="number" 
-                id="sum-input" 
-                name="amount" 
-                min="0" 
-                step="0.01" 
-                placeholder="0.00"
-                
+                  type="number"
+                  id="sum-input"
+                  name="amount"
+                  min="0"
+                  step="0.01"
+                  placeholder="0.00"
                 />
-                <span class="error-message amount">Password must be at least 6 characters.</span>
+                <span class="error-message amount"
+                  >Password must be at least 6 characters.</span
+                >
               </div>
-              </div>
-              <div>Choose type of payment</div>
-              <div class="oval-button-container">
-                
-                <button type="button" class="oval-button cash">Cash</button>
-                <button type="button" class="oval-button credit-card ">Credit card</button>
-                <button type="button" class="oval-button debit-card">Debit card</button>
-              </div>
-              <button type="submit"class="submit-button primary-button ">+Add income</button>
-            </form>
-          </div>
+            </div>
+            <div>Choose type of payment</div>
+            <div class="oval-button-container">
+              <button type="button" class="oval-button cash">Cash</button>
+              <button type="button" class="oval-button credit-card">
+                Credit card
+              </button>
+              <button type="button" class="oval-button debit-card">
+                Debit card
+              </button>
+            </div>
+            <button type="submit" class="submit-button primary-button">
+              +Add income
+            </button>
+          </form>
         </div>
       </div>
     </div>

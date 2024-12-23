@@ -1,5 +1,5 @@
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: var(--color-bg);
   color: var(--color-textPrimary);
   font-size: var(--c-font-size-200);
@@ -189,7 +189,9 @@ header p {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .circle-button:hover {
@@ -213,7 +215,9 @@ header p {
   color: var(--color-textWhite);
   border-radius: 32px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .oval-button:hover {
   transform: scale(1.1);

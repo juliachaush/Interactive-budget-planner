@@ -42,7 +42,7 @@ input:focus {
 }
 
 /* Custom-date-picker */
-.custom-date input[type="date"] {
+.custom-date input[type='date'] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -50,8 +50,8 @@ input:focus {
   cursor: pointer;
 }
 
-.custom-date input[type="date"]::-webkit-calendar-picker-indicator {
-  background: url("/src/assets/icons/calendar.svg") no-repeat center center;
+.custom-date input[type='date']::-webkit-calendar-picker-indicator {
+  background: url('/src/assets/icons/calendar.svg') no-repeat center center;
   background-size: 20px 20px;
   width: 20px;
   height: 20px;
@@ -59,7 +59,7 @@ input:focus {
   cursor: pointer;
 }
 
-.custom-date input[type="date"]:hover::-webkit-calendar-picker-indicator {
+.custom-date input[type='date']:hover::-webkit-calendar-picker-indicator {
   opacity: 1;
 }
 
