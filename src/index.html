@@ -119,24 +119,7 @@
               </div>
               <div class="table-cell table-cell--incomes incomes sum">+5000</div>
             </div>
-            <!-- <div class="table-row">
-              <div class="table-cell">2</div>
-              <div class="table-cell">06.12.2024</div>
-              <div class="table-cell">Grocery store</div>
-              <div class="table-cell bage-outcome">
-                <span class="badge status-dbetcard">Debet card</span>
-              </div>
-              <div class="table-cell outcomes sum">-300</div>
-            </div> -->
-            <!-- <div class="table-row">
-              <div class="table-cell">3</div>
-              <div class="table-cell">06.12.2024</div>
-              <div class="table-cell">Clothes</div>
-              <div class="table-cell bage-outcome">
-                <span class="badge status-cerditcard">Credit card</span>
-              </div>
-              <div class="table-cell outcomes sum">-500</div>
-            </div> -->
+           
           </div>
         </div>
 
@@ -147,41 +130,28 @@
 
             <form id="myForm">
               <div  id='circle-button-container'class="button-container"> </div>
-                <!-- <div class="button-with-text">
-                  <button   type="button" class="circle-button circle-modal-button food" >
-                    <img src="images/ramen.jpg" alt="Icon 1" />
-                  </button>
-                  <div class="button-with-text text">Food</div>
-                </div>
-                <div class="button-with-text">
-                  <button type="button" class="circle-button circle-modal-button" >
-                    <img src="images/shopping.jpg" alt="Icon 2" />
-                  </button>
-                  <div class="button-with-text text">Сlothes</div>
-                </div>
-                <div class="button-with-text">
-                  <button type="button" class="circle-button circle-modal-button">
-                    <img src="images/fun.jpg" alt="Icon 3" />
-                  </button>
-                  <div class="button-with-text text">Fun</div>
-                </div>
-                <div class="button-with-text">
-                  <button type="button" class="circle-button circle-modal-button">
-                    <img src="images/travel.jpg" alt="Icon 3" />
-                  </button>
-                  <div class="button-with-text text">Travel</div>
-                </div> -->
-             
               <div>Or print your type of <span class="modal-text-variant"></span></div>
               <div class="input-container">
                 <div class="form-group">
                 <!-- <label for="variant-input">Type ov operation</label> -->
+                
                 <input
                   type="text"
                   id="variant-input"
                   placeholder="Type of operation"
                   name="operation"
+                  list="outcomes"
+                 
                 />
+
+                <datalist id="outcomes">
+                  <option value="Give a friend">
+                  <option value="Restaurant">
+                  <option value="Treveling">
+                  <option value="Bills">
+                  <option value="fine">
+                </datalist>
+             
                 <span class="error-message variant">The type must contain only letters</span>
               </div>
               <div class="form-group">

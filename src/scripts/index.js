@@ -4,13 +4,14 @@ import "../styles/variables.css";
 import "../styles/modal.css";
 import "../styles/form.css";
 import "../styles/table.css";
-import { openModal, initializeModal, handleButtonClick } from "./modal.js";
 import {
-  changeButtonColors,
-  addButtonBorder,
-  resetButtonStyles,
-  resetBorders,
-} from "./components/button.js";
+  openModal,
+  changeInnerModal,
+  initializeModal,
+  handleCircleButtonClick,
+} from "./modal.js";
+import { changeButtonColors } from "./controllers/buttoncontroller.js";
+import { resetButtonStyles } from "./views/buttonview.js";
 import { formSubmitting, formValidation } from "./form.js";
 
 /* BUTTONS*/
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-circleButtonContainer.addEventListener("click", handleButtonClick);
+circleButtonContainer.addEventListener("click", handleCircleButtonClick);
 
 form.addEventListener("submit", (event, form) => {
   formSubmitting(event);

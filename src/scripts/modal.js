@@ -1,9 +1,9 @@
+import { createCircleButtons } from "./form";
 import {
   circleButtonsDataOutcome,
   circleButtonsDataIncome,
-  createCircleButtons,
-} from "./form";
-import { resetBorders, addButtonBorder } from "./components/button.js";
+} from "./models/dataModel";
+import { resetBorders, addButtonBorder } from "./views/buttonview";
 
 const modal = document.getElementById("modal");
 const modalHeader = document.querySelector(".modal-header");
@@ -18,8 +18,17 @@ const circleButtons = document.querySelectorAll(
   ".circle-button.circle-modal-button"
 );
 
-export function openModal(headerText, textVariant, isCreditCardVisible = true) {
+export const showModal = () => {
   modal.style.display = "flex";
+};
+
+export const openModal = (
+  headerText,
+  textVariant,
+  isCreditCardVisible = true
+) => {
+  showModal();
+
   modalHeader.innerText = headerText;
   modalTextVariant.innerText = textVariant;
 
@@ -53,7 +62,7 @@ export function openModal(headerText, textVariant, isCreditCardVisible = true) {
     : isOutcome
     ? "+Add outcome"
     : submitButton.textContent;
-}
+};
 
 export function closeModal() {
   modal.style.display = "none";
@@ -75,7 +84,7 @@ export function initializeModal() {
   });
 }
 
-export const handleButtonClick = (event) => {
+export const handleCircleButtonClick = (event) => {
   const button = event.target.closest("button.circle-button");
   const circleButtons = document.querySelectorAll("button.circle-button");
   if (button) {

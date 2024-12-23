@@ -1,15 +1,11 @@
-import { resetBorders } from "./components/button.js";
+import { resetBorders } from "./views/buttonview";
 
-const form = document.getElementById("myForm");
 const variantFormInput = document.getElementById("variant-input");
 const sumFormInput = document.getElementById("sum-input");
 const dateFormInput = document.getElementById("date");
 const errorMessageForVariant = document.querySelector(".variant");
 const errorMessageForDate = document.querySelector(".date");
 const errorMessageForSum = document.querySelector(".amount");
-const circleButtons = document.querySelectorAll(
-  ".circle-button.circle-modal-button"
-);
 
 export const formSubmitting = (event) => {
   event.preventDefault();
@@ -19,51 +15,7 @@ export const formSubmitting = (event) => {
   const formData = new FormData(form);
 
   const data = Object.fromEntries(formData.entries());
-
-  console.log("my data", data);
 };
-
-export const circleButtonsDataOutcome = [
-  {
-    src: "images/ramen.jpg",
-    alt: "Food",
-    disabled: false,
-    text: "Food",
-  },
-  {
-    src: "images/shopping.jpg",
-    alt: "Сlothes",
-    disabled: false,
-    text: "Сlothes",
-  },
-  {
-    src: "images/fun.jpg",
-    alt: "Fun",
-    disabled: false,
-    text: "Fun",
-  },
-  {
-    src: "images/travel.jpg",
-    alt: "Travel",
-    disabled: false,
-    text: "Travel",
-  },
-];
-
-export const circleButtonsDataIncome = [
-  {
-    src: "images/ramen.jpg",
-    alt: "Salary",
-    disabled: false,
-    text: "Salary",
-  },
-  {
-    src: "images/ramen.jpg",
-    alt: "Borrowed",
-    disabled: false,
-    text: "Borrowed",
-  },
-];
 
 export const createCircleButtons = (src, alt, disabled, text) => {
   const circleButtonContainer = document.querySelector(
@@ -186,7 +138,6 @@ dateFormInput.addEventListener("input", () => {
 console.log("sumFormInput", sumFormInput);
 sumFormInput.addEventListener("input", () => {
   const value = sumFormInput.value;
-  console.log(value);
 
   if (value === "") {
     errorMessageForSum.style.visibility = "hidden";
