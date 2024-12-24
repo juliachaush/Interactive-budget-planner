@@ -18,6 +18,9 @@ input {
   background-color: var(--color-bg);
   color: var(--color-textThird);
 }
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
 
 input::placeholder {
   color: var(--color-textThird);

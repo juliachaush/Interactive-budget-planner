@@ -1,13 +1,25 @@
-export const changeButtonColors = (e) => {
-  const isCash = e.target.innerText === 'Cash'
-  const isCreditCard = e.target.innerText === 'Credit card'
-  const isDebitCard = e.target.innerText === 'Debit card'
+import { resetButtonStyles } from '../views/buttonview'
+import { changePaymentButtonColors } from '../views/buttonview'
+import { resetButtonBorders, addButtonBorder } from '../views/buttonview'
 
-  e.target.style.backgroundColor = isCash
-    ? 'var(--color-textBuy)'
-    : isCreditCard
-      ? 'var(--color-sellHover)'
-      : isDebitCard
-        ? 'var(--color-primary)'
-        : 'transparent'
+const buttonCreditCard = document.querySelector('.credit-card')
+const buttonCash = document.querySelector('.cash')
+const buttonDebitCard = document.querySelector('.debit-card')
+const paymentButtons = [buttonDebitCard, buttonCash, buttonCreditCard]
+
+const menu = document.querySelector('.oval-button-container')
+
+menu.addEventListener('click', (event) => {
+  console.log('event', event)
+  resetButtonStyles(paymentButtons)
+  changePaymentButtonColors(event)
+})
+
+export const handleCircleButtonClick = (event) => {
+  const button = event.target.closest('button.circle-button')
+  const circleButtons = document.querySelectorAll('button.circle-button')
+  if (button) {
+    resetButtonBorders(circleButtons)
+    addButtonBorder(button, 'var(--color-textBuy)')
+  }
 }
