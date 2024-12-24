@@ -1,12 +1,8 @@
-// import { resetBorders } from '../views/buttonview'
-// import {
-//   formValidation,
-//   validationSuccess,
-//   validationError,
-//   onlyLetters,
-// } from '../models/formModel'
-
-import { isValidPaymentType } from '../models/formModel'
+import {
+  isValidPaymentType,
+  isValidDate,
+  isValidateAmount,
+} from '../models/formModel'
 const form = document.getElementById('myForm')
 
 export const formSubmitHandler = (event) => {
@@ -15,13 +11,23 @@ export const formSubmitHandler = (event) => {
   const form = document.getElementById('myForm')
   const formData = new FormData(form)
   const data = Object.fromEntries(formData.entries())
-  console.log('datadatadata', data)
 }
 
-export const handlerPaymentVariantFormInput = (e) => {
+export const handlerPaymentTypeInput = (e) => {
   const value = e.target.value
-  console.log('valuehandlePayment', value)
+
   isValidPaymentType(value)
+}
+
+export const handleDateInput = (e) => {
+  const value = e.target.value
+  console.log('valueDate', value)
+  isValidDate(value)
+}
+
+export const handleAmountInput = (e) => {
+  const value = e.target.value
+  isValidateAmount(value)
 }
 
 form.addEventListener('submit', (event) => {

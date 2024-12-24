@@ -16,7 +16,6 @@ export const addButtonBorder = (
 
 export const resetButtonBorders = (arrOfButtons) => {
   arrOfButtons.forEach((button) => {
-    console.log('button from reset', button)
     button.style.outline = 'none'
   })
 }

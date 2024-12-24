@@ -12,7 +12,12 @@ import '../styles/table.css'
 import { openModal } from '../scripts/controllers/modalController.js'
 import { initializeModal } from '../scripts/views/modalView.js'
 import { handleCircleButtonClick } from '../scripts/controllers/buttoncontroller.js'
-import { handlerPaymentVariantFormInput } from '../scripts/controllers/formController.js'
+
+import {
+  handlerPaymentTypeInput,
+  handleDateInput,
+  handleAmountInput,
+} from '../scripts/controllers/formController.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   initializeModal()
@@ -26,7 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document
     .getElementById('variant-input')
-    .addEventListener('input', handlerPaymentVariantFormInput)
+    .addEventListener('input', handlerPaymentTypeInput)
+
+  document.getElementById('date').addEventListener('input', handleDateInput)
+
+  document
+    .getElementById('sum-input')
+    .addEventListener('input', handleAmountInput)
 
   addIncomeButton.addEventListener('click', () => {
     openModal('Add income', 'income', false)

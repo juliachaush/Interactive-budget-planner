@@ -10,7 +10,6 @@ const paymentButtons = [buttonDebitCard, buttonCash, buttonCreditCard]
 const menu = document.querySelector('.oval-button-container')
 
 menu.addEventListener('click', (event) => {
-  console.log('event', event)
   resetButtonStyles(paymentButtons)
   changePaymentButtonColors(event)
 })
