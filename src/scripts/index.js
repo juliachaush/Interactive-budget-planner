@@ -19,12 +19,31 @@ import {
   handleAmountInput,
 } from '../scripts/controllers/formController.js'
 
-document.addEventListener('DOMContentLoaded', () => {
-  initializeModal()
+function hideLoaderAndShowContainer() {
+  document.getElementById('loading').style.display = 'none'
 
+  const container = document.querySelector('.container')
+  if (container) {
+    container.style.display = 'block'
+  } else {
+    console.error('Container element not found.')
+  }
+}
+
+function initializeButtons() {
   const addIncomeButton = document.querySelector('.income-button')
   const addOutcomeButton = document.querySelector('.outcome-button')
 
+  addIncomeButton.addEventListener('click', () => {
+    openModal('Add income', 'income', false)
+  })
+
+  addOutcomeButton.addEventListener('click', () => {
+    openModal('Add outcome', 'outcome', true)
+  })
+}
+
+function initializeEvents() {
   document
     .querySelector('#circle-button-container')
     .addEventListener('click', handleCircleButtonClick)
@@ -38,12 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document
     .getElementById('sum-input')
     .addEventListener('input', handleAmountInput)
+}
 
-  addIncomeButton.addEventListener('click', () => {
-    openModal('Add income', 'income', false)
-  })
-
-  addOutcomeButton.addEventListener('click', () => {
-    openModal('Add outcome', 'outcome', true)
-  })
+document.addEventListener('DOMContentLoaded', () => {
+  hideLoaderAndShowContainer()
+  initializeModal()
+  initializeButtons()
+  initializeEvents()
 })

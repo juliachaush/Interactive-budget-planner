@@ -66,6 +66,15 @@ input:focus {
   opacity: 1;
 }
 
+.lazy-image {
+  opacity: 0; /* Спочатку зображення буде невидимим */
+  transition: opacity 0.5s ease-in; /* Плавний перехід */
+}
+
+.lazy-image.loaded {
+  opacity: 1; /* Зображення стане видимим після завантаження */
+}
+
 /*ERROR MESSAGE*/
 .error-message {
   font-size: 14px;

@@ -55,8 +55,14 @@ export const createCircleButtons = (src, alt, disabled, text) => {
   console.log('buttonnnnn', button)
 
   const img = createElement('img', {
-    attributes: { src, alt },
+    attributes: { src, alt, loading: 'lazy' },
+    classes: ['lazy-image'],
   })
+
+  img.onload = () => {
+    img.setAttribute('src', src)
+    img.classList.add('loaded')
+  }
 
   const circleButtonText = createElement('div', {
     classes: ['text'],
