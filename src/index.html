@@ -105,6 +105,7 @@
             <div class="table-cell">Money type</div>
             <div class="table-cell sum">Sum</div>
           </div>
+          <!-- <div class="table-row-container"> -->
           <div class="table-row">
             <div class="table-cell table-cell--number">1</div>
             <div class="table-cell table-cell--date">06.12.2024</div>
@@ -115,6 +116,7 @@
             <div class="table-cell table-cell--incomes incomes sum">+5000</div>
           </div>
         </div>
+        <!-- </div> -->
       </div>
 
       <div id="modal" class="modal">
@@ -128,6 +130,8 @@
               Or print your type of
               <span class="modal-text-variant"></span>
             </div>
+            <input type="hidden" name="selectedVariant" id="selectedVariant" />
+            <input type="hidden" name="selectedPayment" id="selectedPayment" />
             <div class="input-container">
               <div class="form-group">
                 <input
@@ -152,8 +156,14 @@
               </div>
               <div class="form-group">
                 <div class="custom-date">
-                  <input type="date" id="date" name="date" />
-                  <span id="formatted-date"></span>
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    pattern="\d{4}-\d{2}-\d{2}"
+                    required
+                  />
+                  <!-- <span id="formatted-date"></span> -->
                 </div>
                 <span class="error-message date"
                   >Password must be at least 6 characters.</span
@@ -175,11 +185,21 @@
             </div>
             <div>Choose type of payment</div>
             <div class="oval-button-container">
-              <button type="button" class="oval-button cash">Cash</button>
-              <button type="button" class="oval-button credit-card">
+              <button type="button" class="oval-button cash" data-name="Cash">
+                Cash
+              </button>
+              <button
+                type="button"
+                class="oval-button credit-card"
+                data-name="Credit card"
+              >
                 Credit card
               </button>
-              <button type="button" class="oval-button debit-card">
+              <button
+                type="button"
+                class="oval-button debit-card"
+                data-name="Debit card"
+              >
                 Debit card
               </button>
             </div>

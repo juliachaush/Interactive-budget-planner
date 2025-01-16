@@ -9,9 +9,12 @@ import '../styles/table.css'
 // View: Оновлення інтерфейсу, відображення модальних вікон, кнопок, форми.
 // Controller: Обробка подій (натискання на кнопки, подача форми) та взаємодія з моделлю і виглядом.
 
-import { openModal } from '../scripts/controllers/modalController.js'
-import { initializeModal } from '../scripts/views/modalView.js'
-import { handleCircleButtonClick } from '../scripts/controllers/buttoncontroller.js'
+import { openModal } from '../scripts/views/modalView.js'
+import { initializeModal } from '../scripts/controllers/modalController.js'
+import {
+  handleCircleButtonClick,
+  handlePaymentTypeButtonClick,
+} from '../scripts/controllers/buttoncontroller.js'
 
 import {
   handlerPaymentTypeInput,
@@ -19,12 +22,23 @@ import {
   handleAmountInput,
 } from '../scripts/controllers/formController.js'
 
+window.onload = function () {
+  document.getElementById('loading').style.display = 'block'
+  document.querySelector('.header-container').style.visibility = 'hidden'
+  document.querySelector('.container').style.visibility = 'hidden'
+}
+
 function hideLoaderAndShowContainer() {
   document.getElementById('loading').style.display = 'none'
 
   const container = document.querySelector('.container')
-  if (container) {
-    container.style.display = 'block'
+  const header = document.querySelector('.header-container')
+
+  console.log(container)
+
+  if (container && header) {
+    container.style.visibility = 'visible'
+    header.style.visibility = 'visible'
   } else {
     console.error('Container element not found.')
   }
@@ -49,6 +63,10 @@ function initializeEvents() {
     .addEventListener('click', handleCircleButtonClick)
 
   document
+    .querySelector('.oval-button-container')
+    .addEventListener('click', handlePaymentTypeButtonClick)
+
+  document
     .getElementById('variant-input')
     .addEventListener('input', handlerPaymentTypeInput)
 
@@ -59,9 +77,8 @@ function initializeEvents() {
     .addEventListener('input', handleAmountInput)
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  hideLoaderAndShowContainer()
-  initializeModal()
-  initializeButtons()
-  initializeEvents()
-})
+window.addEventListener('load', hideLoaderAndShowContainer)
+
+initializeModal()
+initializeButtons()
+initializeEvents()

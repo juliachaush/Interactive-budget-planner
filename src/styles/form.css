@@ -18,9 +18,9 @@ input {
   background-color: var(--color-bg);
   color: var(--color-textThird);
 }
-input::-webkit-calendar-picker-indicator {
+/* input::-webkit-calendar-picker-indicator {
   display: none;
-}
+} */
 
 input::placeholder {
   color: var(--color-textThird);
@@ -45,7 +45,42 @@ input:focus {
 }
 
 /* Custom-date-picker */
+.custom-date {
+  position: relative;
+  display: inline-block;
+}
+
 .custom-date input[type='date'] {
+  appearance: none;
+  -webkit-appearance: none; /* Для Safari/Chrome */
+  -moz-appearance: none; /* Для Firefox */
+  font-size: 16px;
+  cursor: pointer;
+  padding-right: 30px; /* Додаємо простір для іконки */
+}
+
+.custom-date input[type='date']::-webkit-calendar-picker-indicator {
+  background: url('../assets/icons/calendar.svg') no-repeat center center;
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px; /* Розташування іконки праворуч */
+  pointer-events: none; /* Не заважаємо взаємодії */
+}
+
+.custom-date input[type='date']:hover::-webkit-calendar-picker-indicator {
+  opacity: 0.8;
+}
+
+/* Стилі для Firefox */
+/* .custom-date input[type='date']::-moz-focus-inner {
+  border: 0;
+} */
+
+/* .custom-date input[type='date'] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -64,7 +99,7 @@ input:focus {
 
 .custom-date input[type='date']:hover::-webkit-calendar-picker-indicator {
   opacity: 1;
-}
+} */
 
 .lazy-image {
   opacity: 0; /* Спочатку зображення буде невидимим */

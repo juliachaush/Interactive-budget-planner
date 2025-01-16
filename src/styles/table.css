@@ -6,6 +6,11 @@
   grid-column-start: 1;
   grid-column-end: 4;
 }
+/* 
+.table-row-container {
+  display: flex;
+  flex-direction: column;
+} */
 
 .table-row {
   display: contents;

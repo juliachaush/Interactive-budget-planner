@@ -1,3 +1,5 @@
+import { createElement } from '../utils/createElemet'
+
 export const resetButtonStyles = (buttonsArr) => {
   buttonsArr.forEach((button) => {
     button.style.backgroundColor = 'transparent'
@@ -20,16 +22,16 @@ export const resetButtonBorders = (arrOfButtons) => {
   })
 }
 
-const createElement = (tag, options = {}) => {
-  const { classes = [], attributes = {}, textContent } = options
-  const element = document.createElement(tag)
-  if (classes.length) element.classList.add(...classes)
-  Object.entries(attributes).forEach(([key, value]) => {
-    element.setAttribute(key, value)
-  })
-  if (textContent) element.textContent = textContent
-  return element
-}
+// export const createElement = (tag, options = {}) => {
+//   const { classes = [], attributes = {}, textContent } = options
+//   const element = document.createElement(tag)
+//   if (classes.length) element.classList.add(...classes)
+//   Object.entries(attributes).forEach(([key, value]) => {
+//     element.setAttribute(key, value)
+//   })
+//   if (textContent) element.textContent = textContent
+//   return element
+// }
 
 export const createCircleButtons = (src, alt, disabled, text) => {
   const circleButtonContainer = document.querySelector(
@@ -41,18 +43,20 @@ export const createCircleButtons = (src, alt, disabled, text) => {
     return
   }
 
+  const fragment = document.createDocumentFragment()
+
   const circleButtonWrapper = createElement('div', {
     classes: ['button-with-text'],
   })
 
   const button = createElement('button', {
     classes: ['circle-button', 'circle-modal-button'],
-    attributes: disabled
-      ? { type: 'button', disabled: true }
-      : { type: 'button' },
+    attributes: {
+      type: 'button',
+      ...(disabled && { disabled: true }),
+      'data-name': text,
+    },
   })
-
-  console.log('buttonnnnn', button)
 
   const img = createElement('img', {
     attributes: { src, alt, loading: 'lazy' },
@@ -72,10 +76,60 @@ export const createCircleButtons = (src, alt, disabled, text) => {
   button.appendChild(img)
   circleButtonWrapper.appendChild(button)
   circleButtonWrapper.appendChild(circleButtonText)
-  circleButtonContainer.appendChild(circleButtonWrapper)
+  fragment.appendChild(circleButtonWrapper)
+
+  circleButtonContainer.appendChild(fragment)
 
   return circleButtonWrapper
 }
+
+// export const createCircleButtons = (src, alt, disabled, text) => {
+//   const circleButtonContainer = document.querySelector(
+//     '#circle-button-container'
+//   )
+
+//   if (!circleButtonContainer) {
+//     console.error('Element with id "circle-button-container" not found.')
+//     return
+//   }
+
+//   const circleButtonWrapper = createElement('div', {
+//     classes: ['button-with-text'],
+//   })
+
+//   const button = createElement('button', {
+//     classes: ['circle-button', 'circle-modal-button'],
+//     attributes: {
+//       type: 'button',
+//       ...(disabled && { disabled: true }),
+//       'data-name': text,
+//     },
+//   })
+
+//   console.log('buttonnnnn', button)
+
+//   const img = createElement('img', {
+//     attributes: { src, alt, loading: 'lazy' },
+//     classes: ['lazy-image'],
+//   })
+
+//   img.onload = () => {
+//     img.setAttribute('src', src)
+//     img.classList.add('loaded')
+//   }
+
+//   const circleButtonText = createElement('div', {
+//     classes: ['text'],
+//     textContent: text,
+//   })
+
+//   button.appendChild(img)
+//   circleButtonWrapper.appendChild(button)
+//   circleButtonWrapper.appendChild(circleButtonText)
+//   circleButtonContainer.appendChild(circleButtonWrapper)
+
+//   return circleButtonWrapper
+// }
 
 export const changePaymentButtonColors = (e) => {
   const isCash = e.target.innerText === 'Cash'

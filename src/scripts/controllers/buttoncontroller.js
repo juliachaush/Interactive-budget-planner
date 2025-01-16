@@ -7,15 +7,19 @@ const buttonCash = document.querySelector('.cash')
 const buttonDebitCard = document.querySelector('.debit-card')
 const paymentButtons = [buttonDebitCard, buttonCash, buttonCreditCard]
 
-const menu = document.querySelector('.oval-button-container')
-
-menu.addEventListener('click', (event) => {
+export const handlePaymentTypeButtonClick = (event) => {
+  const button = event.target.closest('button.oval-button')
+  const buttonText = button.getAttribute('data-name')
+  document.getElementById('selectedPayment').value = buttonText
   resetButtonStyles(paymentButtons)
   changePaymentButtonColors(event)
-})
+}
 
 export const handleCircleButtonClick = (event) => {
   const button = event.target.closest('button.circle-button')
+  const buttonText = button.getAttribute('data-name')
+  document.getElementById('selectedVariant').value = buttonText
+
   const circleButtons = document.querySelectorAll('button.circle-button')
   if (button) {
     resetButtonBorders(circleButtons)
