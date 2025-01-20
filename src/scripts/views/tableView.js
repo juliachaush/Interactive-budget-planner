@@ -1,7 +1,7 @@
 import { createElement } from '../utils/createElemet'
 
 export const createTableRow = (data) => {
-  console.log('data data', data)
+  console.log('Tableview data', data)
 
   const { variantButton, amount, date, variant, paymentType } = data
   const tableContainer = document.querySelector('.table')
@@ -26,7 +26,6 @@ export const createTableRow = (data) => {
   }
   const paymentTypeChecking = checkPaymentType(paymentType)
   const { addingClass, badgeName } = paymentTypeChecking
-  console.log('isCash', addingClass, badgeName)
 
   const tableCellConfig = [
     { tag: 'div', classes: ['table-cell', 'table-cell--number'] },

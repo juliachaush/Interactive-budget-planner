@@ -22,6 +22,8 @@ import {
   handleAmountInput,
 } from '../scripts/controllers/formController.js'
 
+import { createTableRow } from './views/tableView.js'
+
 window.onload = function () {
   document.getElementById('loading').style.display = 'block'
   document.querySelector('.header-container').style.visibility = 'hidden'
@@ -77,7 +79,27 @@ function initializeEvents() {
     .addEventListener('input', handleAmountInput)
 }
 
-window.addEventListener('load', hideLoaderAndShowContainer)
+window.addEventListener('load', () => {
+  hideLoaderAndShowContainer()
+
+  const tableData = JSON.parse(localStorage.getItem('data')) || []
+  console.log('tableData', tableData)
+
+  if (tableData) {
+    tableData.forEach((data, index) => {
+      createTableRow(data)
+    })
+  }
+
+  // const storedUserData = localStorage.getItem('data')
+  // if (storedUserData) {
+  //   const userData = JSON.parse(storedUserData)
+  //   createTableRow(userData)
+  //   console.log('Завантажені дані з Local Storage:', userData)
+  // } else {
+  //   console.log('Немає даних у Local Storage')
+  // }
+})
 
 initializeModal()
 initializeButtons()

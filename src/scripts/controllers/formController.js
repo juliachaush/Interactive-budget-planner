@@ -41,6 +41,7 @@ form.addEventListener('submit', (event) => {
     variant: document.getElementById('variant-input')?.value || null,
     paymentType: document.getElementById('selectedPayment')?.value || null,
   }
+
   handleFormData(formData)
 
   clearHiddenInputs()
