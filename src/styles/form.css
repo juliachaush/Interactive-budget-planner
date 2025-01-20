@@ -52,62 +52,44 @@ input:focus {
 
 .custom-date input[type='date'] {
   appearance: none;
-  -webkit-appearance: none; /* Для Safari/Chrome */
-  -moz-appearance: none; /* Для Firefox */
+  -webkit-appearance: none;
+  -moz-appearance: none;
   font-size: 16px;
   cursor: pointer;
   padding-right: 30px; /* Додаємо простір для іконки */
 }
 
 .custom-date input[type='date']::-webkit-calendar-picker-indicator {
-  background: url('../assets/icons/calendar.svg') no-repeat center center;
-  background-size: 20px 20px;
-  width: 20px;
-  height: 20px;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  right: 10px; /* Розташування іконки праворуч */
-  pointer-events: none; /* Не заважаємо взаємодії */
+  display: none;
 }
 
 .custom-date input[type='date']:hover::-webkit-calendar-picker-indicator {
   opacity: 0.8;
 }
 
-/* Стилі для Firefox */
-/* .custom-date input[type='date']::-moz-focus-inner {
-  border: 0;
-} */
-
-/* .custom-date input[type='date'] {
-  appearance: none;
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  font-size: 16px;
-  cursor: pointer;
+  margin: 0;
 }
 
-.custom-date input[type='date']::-webkit-calendar-picker-indicator {
-  background: url('/src/assets/icons/calendar.svg') no-repeat center center;
-  background-size: 20px 20px;
-  width: 20px;
-  height: 20px;
-  border: none;
-  cursor: pointer;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
-.custom-date input[type='date']:hover::-webkit-calendar-picker-indicator {
-  opacity: 1;
-} */
+input:-webkit-autofill {
+  background-color: var(--color-bg) !important; /* Встановлює колір фону */
+  color: #ffffff !important;
+  box-shadow: 0 0 0px 1000px var(--color-bg) inset !important; /* Для заповнення всього поля */
+}
 
 .lazy-image {
-  opacity: 0; /* Спочатку зображення буде невидимим */
-  transition: opacity 0.5s ease-in; /* Плавний перехід */
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
 }
 
 .lazy-image.loaded {
-  opacity: 1; /* Зображення стане видимим після завантаження */
+  opacity: 1;
 }
 
 /*ERROR MESSAGE*/

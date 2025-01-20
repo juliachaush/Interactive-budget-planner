@@ -249,6 +249,26 @@ header p {
 .circle-button:not(:disabled) {
   cursor: pointer;
 }
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-container img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.logo-text {
+  line-height: 110%;
+  padding-left: 0.6em;
+  font-size: 1em;
+  font-weight: 800;
+}
 
 @media (max-width: 768px) {
   .cards-container {

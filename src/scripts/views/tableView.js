@@ -15,7 +15,18 @@ export const createTableRow = (data) => {
 
   const tableRowWrapper = createElement('div', { classes: ['table-row'] })
 
-  const isCash = paymentType === 'Cash' ? 'status-cash' : 'status-card'
+  const checkPaymentType = (type) => {
+    if (paymentType === 'Cash') {
+      return { addingClass: 'status-cash', badgeName: 'Cash' }
+    } else if (paymentType === 'Debit card') {
+      return { addingClass: 'status-dbetcard', badgeName: 'Debet card' }
+    } else if (paymentType === 'Credit card') {
+      return { addingClass: 'status-cerditcard', badgeName: 'Credit card' }
+    }
+  }
+  const paymentTypeChecking = checkPaymentType(paymentType)
+  const { addingClass, badgeName } = paymentTypeChecking
+  console.log('isCash', addingClass, badgeName)
 
   const tableCellConfig = [
     { tag: 'div', classes: ['table-cell', 'table-cell--number'] },
@@ -34,8 +45,8 @@ export const createTableRow = (data) => {
       classes: ['table-cell', 'table-cell--bage'],
       children: [
         createElement('span', {
-          classes: ['badge', isCash],
-          textContent: isCash ? 'Cash' : 'Card',
+          classes: ['badge', addingClass],
+          textContent: badgeName,
         }),
       ],
     },
